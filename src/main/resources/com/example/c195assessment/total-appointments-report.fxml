@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="868.0" prefWidth="775.0" style="-fx-background-color: #325C74;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AppointmentReportsController">
+    <AnchorPane layoutX="79.0" layoutY="174.0" prefHeight="647.0" prefWidth="618.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+        <TableView fx:id="totalAppointmentsTable" layoutX="103.0" layoutY="118.0" prefHeight="463.0" prefWidth="413.0">
+            <columns>
+                <TableColumn fx:id="filterByColumn" editable="false" prefWidth="127.0" text="Type" />
+                <TableColumn fx:id="totalColumn" editable="false" prefWidth="127.0" text="Total" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TableView>
+       <ComboBox fx:id="monthTypeComboBox" layoutX="14.0" layoutY="28.0" onAction="#onMonthTypeComboBox" prefHeight="65.0" prefWidth="221.0" promptText="Select..." style="-fx-background-color: transparent; -fx-font-size: 30px;" />
+    </AnchorPane>
+    <Label layoutX="78.0" layoutY="58.0" style="-fx-text-fill: #ffffff;" text="Appointments Report">
+        <font>
+            <Font name="Arial" size="45.0" />
+        </font>
+    </Label>
+    <Button fx:id="backButton" layoutX="26.0" layoutY="26.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="26.0" prefWidth="25.0" style="-fx-background-radius: 50%; -fx-background-color: #ffffff;" text="&lt;" />
+</AnchorPane>

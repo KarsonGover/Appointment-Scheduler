@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="980.0" prefWidth="1449.0" style="-fx-background-color: #325C74;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AllCustomersReportController">
+    <AnchorPane layoutX="78.0" layoutY="146.0" prefHeight="775.0" prefWidth="1294.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+        <TableView fx:id="customerTable" layoutX="35.0" layoutY="43.0" prefHeight="644.0" prefWidth="1219.0" style="-fx-accent: #325C74;">
+            <columns>
+                <TableColumn fx:id="customerIDColumn" editable="false" prefWidth="127.0" text="Customer ID" />
+                <TableColumn fx:id="customerNameColumn" editable="false" prefWidth="127.0" text="Customer Name" />
+                <TableColumn fx:id="addressColumn" editable="false" prefWidth="127.0" text="Address" />
+                <TableColumn fx:id="postalCodeColumn" editable="false" prefWidth="127.0" text="Postal Code" />
+                <TableColumn fx:id="phoneColumn" editable="false" prefWidth="127.0" text="Phone Number" />
+                <TableColumn fx:id="divisionColumn" editable="false" prefWidth="127.0" text="Division" />
+            <TableColumn fx:id="countryColumn" prefWidth="75.0" text="Country" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+      <Button fx:id="updateCustomerButton" layoutX="1123.0" layoutY="718.0" mnemonicParsing="false" onAction="#onUpdateCustomer" prefHeight="26.0" prefWidth="131.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" text="Update Customer">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="addCustomerButton" layoutX="974.0" layoutY="718.0" mnemonicParsing="false" onAction="#onAddCustomer" prefHeight="26.0" prefWidth="131.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" text="Add Customer">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewCustomerButton" layoutX="824.0" layoutY="718.0" mnemonicParsing="false" onAction="#onViewCustomer" prefHeight="26.0" prefWidth="131.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" text="View Customer">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+    </AnchorPane>
+    <Label layoutX="78.0" layoutY="58.0" style="-fx-text-fill: #ffffff;" text="All Customer Records">
+        <font>
+            <Font name="Arial" size="45.0" />
+        </font>
+    </Label>
+    <Button fx:id="backButton" layoutX="26.0" layoutY="26.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="26.0" prefWidth="25.0" style="-fx-background-radius: 50%; -fx-background-color: #ffffff;" text="&lt;" />
+</AnchorPane>

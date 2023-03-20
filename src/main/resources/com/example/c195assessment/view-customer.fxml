@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="1098.0" prefWidth="1449.0" style="-fx-background-color: #325C74;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ViewCustomerController">
+    <AnchorPane layoutX="315.0" layoutY="138.0" prefHeight="488.0" prefWidth="818.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+        <Label layoutX="153.0" layoutY="50.0" text="Customer ID">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="474.0" layoutY="160.0" text="Postal Code">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="474.0" layoutY="51.0" text="Customer Name">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="153.0" layoutY="269.0" text="Phone Number">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="153.0" layoutY="159.0" text="Address">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="474.0" layoutY="270.0" text="Country">
+            <font>
+                <Font name="Arial" size="15.0" />
+            </font>
+        </Label>
+       <TextField fx:id="customerIDText" editable="false" layoutX="153.0" layoutY="84.0" prefHeight="25.0" prefWidth="191.0" promptText="Auto-Generated" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+       <TextField fx:id="customerNameText" editable="false" layoutX="473.0" layoutY="85.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+       <TextField fx:id="addressText" editable="false" layoutX="153.0" layoutY="193.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+       <TextField fx:id="postalCodeText" editable="false" layoutX="474.0" layoutY="194.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+       <TextField fx:id="phoneText" editable="false" layoutX="153.0" layoutY="305.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+       <ComboBox fx:id="countryComboBox" layoutX="474.0" layoutY="306.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+      <Label layoutX="153.0" layoutY="377.0" text="Division">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="divisionComboBox" layoutX="153.0" layoutY="413.0" prefHeight="25.0" prefWidth="191.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" />
+    </AnchorPane>
+    <Label layoutX="78.0" layoutY="58.0" style="-fx-text-fill: #ffffff;" text="Customer Information">
+        <font>
+            <Font name="Arial" size="45.0" />
+        </font>
+    </Label>
+    <Button fx:id="backButton" layoutX="26.0" layoutY="26.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="26.0" prefWidth="25.0" style="-fx-background-radius: 50%; -fx-background-color: #ffffff;" text="&lt;" />
+    <AnchorPane layoutX="31.0" layoutY="758.0" prefHeight="309.0" prefWidth="1388.0" style="-fx-background-color: #ffffff;">
+        <TableView fx:id="customerAppointmentsTable" layoutX="22.0" layoutY="31.0" prefHeight="219.0" prefWidth="1345.0" style="-fx-accent: #325C74;">
+            <columns>
+                <TableColumn fx:id="appointmentIDColumn" editable="false" prefWidth="127.0" text="Appointment ID" />
+                <TableColumn fx:id="titleColumn" editable="false" prefWidth="127.0" text="Title" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
+                <TableColumn fx:id="locationColumn" prefWidth="75.0" text="Location" />
+                <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+                <TableColumn fx:id="startTimeColumn" prefWidth="75.0" text="Start Time" />
+                <TableColumn fx:id="endTimeColumn" prefWidth="75.0" text="End Time" />
+                <TableColumn fx:id="customerIDColumn" prefWidth="75.0" text="Customer ID" />
+                <TableColumn fx:id="userIDColumn" prefWidth="75.0" text="User ID" />
+                <TableColumn fx:id="contactNameColumn" prefWidth="75.0" text="Contact Name" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+       <Button fx:id="deleteAppointmentButton" layoutX="1074.0" layoutY="264.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" text="Delete Appointment" onAction="#onDeleteAppointmentButton">
+           <font>
+               <Font name="Arial" size="12.0" />
+           </font>
+       </Button>
+      <Button fx:id="deleteCustomerButton" layoutX="1236.0" layoutY="264.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="131.0" style="-fx-background-radius: 30px; -fx-background-color: #dfe3e8;" text="Delete Customer" onAction="#onDeleteCustomerButton">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+    </AnchorPane>
+   <Label layoutX="31.0" layoutY="662.0" style="-fx-text-fill: #ffffff;" text="Customer Appointments">
+      <font>
+         <Font name="Arial" size="45.0" />
+      </font>
+   </Label>
+</AnchorPane>
