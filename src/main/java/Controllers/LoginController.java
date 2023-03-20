@@ -65,7 +65,7 @@ public class LoginController implements Initializable {
         String username = usernameText.getText();
         String password = passwordText.getText();
 
-        String fileName = "C:/Users/gover/OneDrive/Desktop/Programming/IntelliJ Projects/C195Assessment/login_activity.text";
+        String fileName = "login_activity.text";
 
         FileWriter fileWriter = new FileWriter(fileName, true);
 
@@ -87,6 +87,31 @@ public class LoginController implements Initializable {
                 stage.setScene(scene);
                 stage.centerOnScreen();
                 stage.show();
+
+                // 15-minute appointment reminder when logging in
+                ObservableList<Appointment> appointment =  AppointmentQuery.getAllAppointments();
+                ObservableList<Appointment> upcomingAppointments = FXCollections.observableArrayList();
+
+                for (Appointment a : appointment) {
+                    if (LocalDateTime.now().plusMinutes(15).isAfter(a.getStartTime()) & a.getStartTime().isAfter(LocalDateTime.now())) {
+                        upcomingAppointments.add(a);
+                    }
+                }
+                if (!upcomingAppointments.isEmpty()) {
+                    for (Appointment a : upcomingAppointments) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("15-minute Appointment Reminder");
+                        alert.setContentText("You have an upcoming appointment within 15 minutes." + System.getProperty("line.separator") +
+                                "Appointment ID: " + a.getId() + System.getProperty("line.separator") + "Start Time: " + a.getFormattedStartTime());
+                        alert.showAndWait();
+                    }
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("No Upcoming Appointments");
+                    alert.setContentText("You have no upcoming appointments.");
+                    alert.showAndWait();
+                }
             }
             else {
                 outputFile.println("   " + getUsername() + "   |   " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/yyyy  H:m:s")) + "   |   " + "Failed   ");
@@ -97,30 +122,6 @@ public class LoginController implements Initializable {
                 badLogin.setTitle(rb.getString("Error"));
                 badLogin.setContentText(rb.getString("bad-login"));
                 badLogin.showAndWait();
-            }
-            // 15-minute appointment reminder when logging in
-            ObservableList<Appointment> appointment =  AppointmentQuery.getAllAppointments();
-            ObservableList<Appointment> upcomingAppointments = FXCollections.observableArrayList();
-
-            for (Appointment a : appointment) {
-                if (LocalDateTime.now().plusMinutes(15).isAfter(a.getStartTime()) & a.getStartTime().isAfter(LocalDateTime.now())) {
-                    upcomingAppointments.add(a);
-                }
-            }
-            if (!upcomingAppointments.isEmpty()) {
-                for (Appointment a : upcomingAppointments) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("15-minute Appointment Reminder");
-                    alert.setContentText("You have an upcoming appointment within 15 minutes." + System.getProperty("line.separator") +
-                            "Appointment ID: " + a.getId() + System.getProperty("line.separator") + "Start Time: " + a.getFormattedStartTime());
-                    alert.showAndWait();
-                }
-            }
-            else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("No Upcoming Appointments");
-                alert.setContentText("You have no upcoming appointments.");
-                alert.showAndWait();
             }
         } catch (IOException e) {
             Alert badLogin = new Alert(Alert.AlertType.ERROR);
