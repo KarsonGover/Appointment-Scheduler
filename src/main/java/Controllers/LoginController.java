@@ -149,7 +149,7 @@ public class LoginController implements Initializable {
         loginButton.setText(rb.getString("login"));
         loginLabel.setText(rb.getString("login"));
         loggingInFromLabel.setText(rb.getString("logging-in-from"));
-        countryLabel.setText(rb.getString("country"));
+        countryLabel.setText(rb.getString("zoneID"));
     }
 
     /**
